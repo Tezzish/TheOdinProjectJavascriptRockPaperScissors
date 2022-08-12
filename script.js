@@ -4,6 +4,7 @@ const scissors = document.getElementById("scissors");
 const msg = document.getElementById("msg");
 const human = document.getElementById("human");
 const comp = document.getElementById("comp");
+const computerChoice = document.getElementById("computerChoice");
 
 class GameHolder {
 
@@ -96,6 +97,11 @@ class GameHolder {
         human.textContent = "Your score: " + this.score[0];
         comp.textContent = "Computer score: " + this.score[1];
     }
+
+    updateComputerChoice(){
+        computerChoice.textContent = "The computer chose: " + this.computerChoice;
+    }
+
 }
 
 let i = 0;
