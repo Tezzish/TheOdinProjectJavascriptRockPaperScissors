@@ -112,7 +112,9 @@ rock.onclick = () => {
     if(i < 10){
         gameHolder.sethumanChoice("rock");
         i = i + gameHolder.playGame();
+        gameHolder.updateComputerChoice();
         gameHolder.update();
+
     }
     else{
         msg.textContent = "Max number of games reached";
@@ -123,6 +125,7 @@ paper.onclick = () => {
     if(i < 10){
         gameHolder.sethumanChoice("paper");
         i = i + gameHolder.playGame();
+        gameHolder.updateComputerChoice();
         gameHolder.update();
     }
     else{
@@ -134,6 +137,7 @@ scissors.onclick = () => {
     if(i < 10){
         gameHolder.sethumanChoice("scissors");
         i = i + gameHolder.playGame();
+        gameHolder.updateComputerChoice();
         gameHolder.update();
     }
     else{
