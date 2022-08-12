@@ -93,8 +93,8 @@ class GameHolder {
     }
 
     update(){
-        human.textContent = this.score[0];
-        comp.textContent = this.score[1];
+        human.textContent = "Your score: " + this.score[0];
+        comp.textContent = "Computer score: " + this.score[1];
     }
 }
 
