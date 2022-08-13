@@ -96,18 +96,18 @@ class GameHolder {
     }
 
     //updates the score on the bottom
-    update(){
+    function update(){
         human.textContent = "Your score: " + this.score[0];
         comp.textContent = "Computer score: " + this.score[1];
     }
 
     //updates what the computer chose
-    updateComputerChoice(){
+    function updateComputerChoice(){
         computerChoice.textContent = "The computer chose: " + this.computerChoice;
     }
 
     //updates the text after the entire game is finished.
-    finalText(){
+    function finalText(){
         msg.textContent = "Max number of games reached";
         if(this.score[0] > this.score[1]){
             msg.style = "color: green;"
@@ -122,10 +122,10 @@ class GameHolder {
     }
 
     //plays the game when a button is pressed
-    clicked(str){
+    function clicked(str){
         this.humanChoice = str;
-        updateComputerChoice();
-        update();
+        this.updateComputerChoice();
+        this.update();
         return this.playGame()
     }
 
