@@ -31,27 +31,21 @@ class GameHolder {
     playGame(){
         //gets computer choice
         this.computerChoice = this.getComputerChoice();
-
-        //console.log(this.computerChoice);
-        //console.log(this.humanChoice);
         
         //human chose rock
         if(this.humanChoice == "rock"){
             if(this.computerChoice == "paper"){
                 msg.textContent = this.losemsg;
                 this.score[1]++;
-                console.log(this.score);
                 return 1;
             }
             else if(this.computerChoice == "scissors"){
                 msg.textContent = this.winmsg;
                 this.score[0]++;
-                console.log(this.score);
                 return 1;
             }
             else{
                 msg.textContent = this.drawmsg;
-                console.log(this.score);
                 return 0;
             }
         }    
@@ -60,18 +54,15 @@ class GameHolder {
             if(this.computerChoice == "rock"){
                 msg.textContent = this.losemsg;
                 this.score[1]++;
-                console.log(this.score);
                 return 1;
             }
             else if(this.computerChoice == "paper"){
                 msg.textContent = this.winmsg;
                 this.score[0]++;
-                console.log(this.score);
                 return 1;
             }
             else{
                 msg.textContent = this.drawmsg;
-                console.log(this.score);
                 return 0;
             }
         }
@@ -81,18 +72,15 @@ class GameHolder {
             if(this.computerChoice == "scissors"){
                 msg.textContent = this.losemsg;
                 this.score[1]++;
-                console.log(this.score);
                 return 1;
             }
             else if(this.computerChoice == "rock"){
                 msg.textContent = this.winmsg;
                 this.score[0]++;
-                console.log(this.score);
                 return 1;
             }
             else{
                 msg.textContent = this.drawmsg;
-                console.log(this.score);
                 return 0;
             }
         }
@@ -120,8 +108,6 @@ class GameHolder {
             scores.style = "color: red;"
         }
         else{
-            console.log(this.score[0]);
-            console.log(this.score[1]);
             scores.style = "color: yellow;"
         }
     }
@@ -137,34 +123,37 @@ class GameHolder {
 
 }
 
+//this part here acts as a main
 let i = 0;
 
 let gameHolder = new GameHolder();
 
-rock.onclick = () => {
-    if(i < 4){
-        i = i + gameHolder.clicked("rock");
-        console.log(i);
+let numgames = 5;
+
+function doGame(str){
+    if(i <= numgames-2){
+        i = i + gameHolder.clicked(str);
+    }
+    else if(i == numgames-1){
+        let ret = gameHolder.clicked(str);
+        i = i + ret;
+        if(ret == 1){
+            gameHolder.finalText();
+        }
     }
     else{
         gameHolder.finalText();
     }
+}
+
+rock.onclick = () => {
+    doGame("rock");
 }
 
 paper.onclick = () => {
-    if(i < 4){
-        i = i + gameHolder.clicked("paper");
-    }
-    else{
-        gameHolder.finalText();
-    }
+    doGame("paper");
 }
 
 scissors.onclick = () => {
-    if(i < 4){
-        i = i + gameHolder.clicked("scissors");
-    }
-    else{
-        gameHolder.finalText();
-    }
+    doGame("scissors");
 }
