@@ -9,8 +9,9 @@
 }
 
 .text{
-    font-family: 'Silkscreen';
+    font-family: 'Silkscreen-Bold';
     text-align: center;
+    font-size: 32px;
 }
 
 button{
@@ -26,7 +27,9 @@ button{
 }
 
 .textdiv{
+    margin: 32px;
     min-height: 64px;
+    font-family: 'Silkscreen';
 }
 
 #buttons{

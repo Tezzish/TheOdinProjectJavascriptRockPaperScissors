@@ -109,7 +109,7 @@ let i = 0;
 let gameHolder = new GameHolder();
 
 rock.onclick = () => {
-    if(i < 10){
+    if(i < 100){
         gameHolder.sethumanChoice("rock");
         i = i + gameHolder.playGame();
         gameHolder.updateComputerChoice();
@@ -122,7 +122,7 @@ rock.onclick = () => {
 }
 
 paper.onclick = () => {
-    if(i < 10){
+    if(i < 100){
         gameHolder.sethumanChoice("paper");
         i = i + gameHolder.playGame();
         gameHolder.updateComputerChoice();
@@ -134,7 +134,7 @@ paper.onclick = () => {
 }
 
 scissors.onclick = () => {
-    if(i < 10){
+    if(i < 100){
         gameHolder.sethumanChoice("scissors");
         i = i + gameHolder.playGame();
         gameHolder.updateComputerChoice();
