@@ -1,0 +1,16 @@
+@font-face{
+    font-family: 'Cooper Black';
+    src: url(./Cooper\ Black\ Regular.ttf);
+}
+
+button{
+    padding: 24px;
+    border-style: solid;
+    border-width: 12px;
+    background-color:darkturquoise;
+    color: black;
+    font-family: 'Cooper Black';
+    font-size: 48px;
+    border-radius: 24px;
+    margin:50px;
+}
