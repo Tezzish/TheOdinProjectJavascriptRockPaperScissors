@@ -29,9 +29,10 @@ class GameHolder {
     }
 
     playGame(){
-
+        //gets computer choice
         this.computerChoice = this.getComputerChoice();
-
+        
+        //human chose rock
         if(this.humanChoice == "rock"){
             if(this.computerChoice == "paper"){
                 msg.textContent = this.losemsg;
@@ -51,7 +52,7 @@ class GameHolder {
                 return 0;
             }
         }    
-
+        //human chose scissors
         else if(this.humanChoice == "scissors"){
             if(this.computerChoice == "rock"){
                 msg.textContent = this.losemsg;
@@ -72,6 +73,7 @@ class GameHolder {
             }
         }
 
+        //human chose paper
         else if(this.humanChoice == "paper"){
             if(this.computerChoice == "scissors"){
                 msg.textContent = this.losemsg;
@@ -93,13 +95,38 @@ class GameHolder {
         }
     }
 
+    //updates the score on the bottom
     update(){
         human.textContent = "Your score: " + this.score[0];
         comp.textContent = "Computer score: " + this.score[1];
     }
 
+    //updates what the computer chose
     updateComputerChoice(){
         computerChoice.textContent = "The computer chose: " + this.computerChoice;
+    }
+
+    //updates the text after the entire game is finished.
+    finalText(){
+        msg.textContent = "Max number of games reached";
+        if(this.score[0] > this.score[1]){
+            msg.style = "color: green;"
+        }
+
+        else if (this.score[0] < this.score[1]){
+            msg.style = "color: red;"
+        }
+        else{
+            msg.style = "color: red;"
+        }
+    }
+
+    //plays the game when a button is pressed
+    clicked(str){
+        this.humanChoice = str;
+        updateComputerChoice();
+        update();
+        return this.playGame()
     }
 
 }
@@ -109,38 +136,28 @@ let i = 0;
 let gameHolder = new GameHolder();
 
 rock.onclick = () => {
-    if(i < 100){
-        gameHolder.sethumanChoice("rock");
-        i = i + gameHolder.playGame();
-        gameHolder.updateComputerChoice();
-        gameHolder.update();
-
+    if(i < 5){
+        i = i + gameHolder.clicked(rock);
     }
     else{
-        msg.textContent = "Max number of games reached";
+        gameHolder.finalText();
     }
 }
 
 paper.onclick = () => {
-    if(i < 100){
-        gameHolder.sethumanChoice("paper");
-        i = i + gameHolder.playGame();
-        gameHolder.updateComputerChoice();
-        gameHolder.update();
+    if(i < 5){
+        i = i + gameHolder.clicked(rock);
     }
     else{
-        msg.textContent = "Max number of games reached";
+        gameHolder.finalText();
     }
 }
 
 scissors.onclick = () => {
-    if(i < 100){
-        gameHolder.sethumanChoice("scissors");
-        i = i + gameHolder.playGame();
-        gameHolder.updateComputerChoice();
-        gameHolder.update();
+    if(i < 5){
+        i = i + gameHolder.clicked(rock);
     }
     else{
-        msg.textContent = "Max number of games reached";
+        gameHolder.finalText();
     }
 }
