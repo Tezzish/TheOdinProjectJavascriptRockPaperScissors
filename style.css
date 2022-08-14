@@ -21,10 +21,10 @@ button{
     border-color:turquoise;
     color: black;
     font-family: 'Silkscreen-Bold';
-    font-size: 100px;
+    font-size: 64px;
     /*border-radius: 24px;*/
     margin:48px;
-    box-shadow: 0px 12px rgb(31, 107, 99);
+    box-shadow: 0px 8px rgb(31, 107, 99);
 }
 
 #rock:hover{
@@ -41,7 +41,7 @@ button{
 
 button:active{
     box-shadow: 0px 0px;
-    transform: translateY(12px);
+    transform: translateY(8px);
 }
 .textdiv{
     margin: 32px;
