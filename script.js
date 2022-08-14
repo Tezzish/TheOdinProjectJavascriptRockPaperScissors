@@ -8,6 +8,7 @@ const computerChoice = document.getElementById("computerChoice");
 
 class GameHolder {
 
+    //constructs game holder
     constructor(){
         this.score = [0,0];
         this.choices = ["rock", "paper", "scissors"];
@@ -17,10 +18,12 @@ class GameHolder {
         this.drawmsg = "This round was a draw, new round";
     }
 
+    //sets the human choice to what the human selected
     sethumanChoice(choice){
         this.humanChoice = choice;
     }
 
+    //returns random choice
     getComputerChoice(){
         var index = Math.random() * 3;            
         index = Math.floor(index);
@@ -28,6 +31,7 @@ class GameHolder {
         return choice;
     }
 
+    //game logic, returns 0 if draw, 1 if not draw
     playGame(){
         //gets computer choice
         this.computerChoice = this.getComputerChoice();
@@ -128,8 +132,9 @@ let i = 0;
 
 let gameHolder = new GameHolder();
 
-let numgames = 5;
+let numgames = 6;
 
+//handles the number of games
 function doGame(str){
     if(i <= numgames-2){
         i = i + gameHolder.clicked(str);
@@ -146,14 +151,17 @@ function doGame(str){
     }
 }
 
+//handles what happens when the rock button is clicked
 rock.onclick = () => {
     doGame("rock");
 }
 
+//handles what happens when the paper button is clicked
 paper.onclick = () => {
     doGame("paper");
 }
 
+//handles what happens when the scissors button is clicked
 scissors.onclick = () => {
     doGame("scissors");
 }
